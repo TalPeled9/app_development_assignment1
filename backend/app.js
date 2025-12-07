@@ -1,16 +1,18 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
 
-const routes = require('./routes');
+const mongoose = require("mongoose");
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
+const db = mongoose.connection;
+db.on("error", (error) => console.error(error));
+db.once("open", () => console.log("Connected to Database"));
 
 app.use(express.json());
 
-app.use('/api', routes);
+const routes = require('./routes');
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
+app.use('/', routes);
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
