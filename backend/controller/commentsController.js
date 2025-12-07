@@ -1,4 +1,4 @@
-const commentsModel = require('../models/commentsModel');
+const commentsModel = require('../model/commentsModel');
 
 const createComment = async (req, res) => {
     const commentData = req.body;
@@ -26,7 +26,7 @@ const getCommentById = async (req, res) => {
 };
 
 const getCommentsByPostId = async (req, res) => {
-    const postId = req.params.postId;
+    const postId = req.query.postId;
     try {
         const comments = await commentsModel.find({ postId: postId });
         res.status(200).json(comments);
