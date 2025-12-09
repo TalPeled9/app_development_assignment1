@@ -1,5 +1,33 @@
 ### Posts API
-//to be done
+
+### Create post
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+  "title": "My First Post",
+  "content": "This is the content of my first post.",
+  "sender": "user123"
+}
+
+### Get all posts
+GET http://localhost:3000/posts
+
+### Get post by id
+GET http://localhost:3000/posts/<post-id>
+
+### Get posts by sender
+GET http://localhost:3000/posts?sender=user123
+
+### Update post by id
+PUT http://localhost:3000/posts/<post-id>
+Content-Type: application/json
+
+{
+  "title": "Updated Title",
+  "content": "Updated content.",
+  "sender": "user123"
+}
 
 ### Comments API
 
