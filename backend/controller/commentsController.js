@@ -3,7 +3,8 @@ const commentsModel = require('../model/commentsModel');
 const createComment = async (req, res) => {
     const commentData = req.body;
     try {
-        const newComment = await new commentsModel(commentData);
+        const newComment = new commentsModel(commentData);
+        await newComment.save();
         res.status(201).json(newComment);
     } catch (error) {
         console.error(error);
