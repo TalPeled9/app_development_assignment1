@@ -17,7 +17,7 @@ GET http://localhost:3000/posts
 GET http://localhost:3000/posts/<post-id>
 
 ### Get posts by sender
-GET http://localhost:3000/posts?sender=user123
+GET http://localhost:3000/posts?sender=user2
 
 ### Update post by id
 PUT http://localhost:3000/posts/<post-id>
